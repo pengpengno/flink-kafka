@@ -1,3 +1,7 @@
 
 .idea/*
 target/*
+/flink-kafka.iml
+/*.yml
+src/main/resources/appliaction.yml
+src/test/sink1/2022-11-10--17/.part-10-0.inprogress.5adafc35-925b-4251-a742-a670654b3a83
