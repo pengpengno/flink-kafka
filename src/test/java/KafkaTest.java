@@ -96,7 +96,6 @@ public class KafkaTest {
 //        new RideCleansingSolution.NYCFilter()
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         DataStreamSource<String> dataSource = env.fromSource(build, WatermarkStrategy.noWatermarks(), "ka");
-
         DataStream<String> result = dataSource.map(new MapFunction<String,String>() {
             @Override
             public String map(String value) throws Exception {
@@ -104,7 +103,6 @@ public class KafkaTest {
                 return value;
             }
         });
-
         result.print().setParallelism(1);
         env.execute("dothis");
     }
