@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 /**
  * 获取笛卡尔积
- *
- * Created by xuwei.tech on 2018/10/8.
  */
 public class BatchDemoCross {
 

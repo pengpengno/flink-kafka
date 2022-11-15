@@ -1,36 +1,31 @@
-package com.pengpeng.flink.streaming.streamAPI;
-
-import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson2.JSONObject;
 import com.pengpeng.flink.source.RandomSingleEmploySource;
 import com.pengpeng.flink.source.test.pojo.Employee;
-import com.pengpeng.flink.streaming.custormSource.MyNoParalleSource;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.flink.api.common.eventtime.WatermarkGenerator;
-import org.apache.flink.api.common.eventtime.WatermarkGeneratorSupplier;
-import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.functions.KeySelector;
-import org.apache.flink.metrics.MetricGroup;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
-import org.apache.flink.streaming.api.datastream.WindowedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *  broadcast分区规则
  */
 @Slf4j
+@RunWith(SpringJUnit4ClassRunner.class)
 public class StreamingDemoWithMyNoPralalleSourceBroadcast {
-
-    public static void main(String[] args) throws Exception {
+    @Test
+    public  void mains() throws Exception {
         //获取Flink的运行环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
@@ -53,7 +48,7 @@ public class StreamingDemoWithMyNoPralalleSourceBroadcast {
 //            }
 //        }))
 //        num.assignTimestampsAndWatermarks(WatermarkStrategy.noWatermarks());
-        SingleOutputStreamOperator<String> reduce = num.keyBy((KeySelector<String, String>) value -> {
+        SingleOutputStreamOperator<Object> process = num.keyBy((KeySelector<String, String>) value -> {
             try {
                 Employee employee = JSONObject.parseObject(value, Employee.class);
                 return employee.getUserName();
@@ -61,7 +56,26 @@ public class StreamingDemoWithMyNoPralalleSourceBroadcast {
                 return "null";
             }
         }).window(TumblingEventTimeWindows.of(Time.seconds(5)))
-                .reduce((ReduceFunction<String>) (value1, value2) -> value1 + value2);
+                .process(new ProcessWindowFunction<String, Object, String, TimeWindow>() {
+                    /**
+                     * Evaluates the window and outputs none or several elements.
+                     *
+                     * @param s        The key for which this window is evaluated.
+                     * @param context  The context in which the window is being evaluated.
+                     * @param elements The elements in the window being evaluated.
+                     * @param out      A collector for emitting elements.
+                     * @throws Exception The function may throw exceptions to fail the program and trigger recovery.
+                     */
+                    @Override
+                    public void process(String s, Context context, Iterable<String> elements, Collector<Object> out) throws Exception {
+
+                        for (String in : elements) {
+                            out.collect("Window: " + context.window() + "count: " + in);
+                        }
+
+                    }
+                });
+//                .reduce((ReduceFunction<String>) (value1, value2) -> value1 + value2);
 
 //        window.process(new ProcessWindowFunction<String, Object, String, TimeWindow>() {
 //            @Override
@@ -78,7 +92,7 @@ public class StreamingDemoWithMyNoPralalleSourceBroadcast {
         //打印结果
 //        num.print().setParallelism(1);
 //        num.print();
-        reduce.print();
+        process.print();
 
         String jobName = StreamingDemoWithMyNoPralalleSourceBroadcast.class.getSimpleName();
         env.execute(jobName);

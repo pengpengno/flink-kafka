@@ -22,12 +22,9 @@ public class StreamingKafkaSink {
     public static void main(String[] args) throws Exception {
 
 
-
-
-
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        String topic = "localhost:9092";
-        String broker = "quickstart-events";
+        String topic = "quickstart-events";
+        String broker = "localhost:9092";
         StopWatch stopWatch = new StopWatch();
         List<String> messages  = CollectionUtil.newArrayList();
         Integer times = 1000000;

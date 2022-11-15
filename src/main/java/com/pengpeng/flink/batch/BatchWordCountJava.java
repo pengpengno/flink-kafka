@@ -8,7 +8,7 @@ import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.util.Collector;
 
 /**
- * Created by xuwei.tech on 2018/10/8.
+ * 批次单词统计
  */
 public class BatchWordCountJava {
 
