@@ -34,7 +34,7 @@ import java.util.List;
  *
  *
  *
- * Created by xuwei.tech on 2018/10/8.
+ *     
  */
 public class BatchDemoBroadcast {
 

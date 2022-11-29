@@ -8,7 +8,7 @@ import org.apache.flink.api.java.tuple.Tuple2;
 import java.util.ArrayList;
 
 /**
- * Created by xuwei.tech on 2018/10/8.
+ *     
  */
 public class BatchDemoUnion {
 

@@ -9,14 +9,7 @@ import org.apache.flink.util.Collector;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/**
- * Hash-Partition
- *
- * Range-Partition
- *
- *
- * Created by xuwei.tech on 2018/10/8.
- */
+
 public class BatchDemoHashRangePartition {
 
     public static void main(String[] args) throws Exception{

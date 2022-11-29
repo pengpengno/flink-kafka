@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * 把collection集合作为数据源
  *
- * Created by xuwei.tech on 2018/10/23.
+ *      
  */
 public class StreamingFromCollection {
 

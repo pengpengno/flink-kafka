@@ -21,7 +21,7 @@ import org.apache.flink.configuration.Configuration;
  *
  * 可以应用于 计算  批次 job 作业中某些需要统计的指标  如计算行量  算子数
  *
- * Created by xuwei.tech on 2018/10/8.
+ *     
  */
 public class BatchDemoCounter {
 

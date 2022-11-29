@@ -9,7 +9,7 @@ import org.apache.flink.streaming.api.functions.source.RichParallelSourceFunctio
  * RichParallelSourceFunction 会额外提供open和close方法
  * 针对source中如果需要获取其他链接资源，那么可以在open方法中获取资源链接，在close中关闭资源链接
  *
- * Created by xuwei.tech on 2018/10/23.
+ *      
  */
 public class MyRichParalleSource extends RichParallelSourceFunction<Long> {
 

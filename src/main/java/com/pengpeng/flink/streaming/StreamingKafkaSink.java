@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * kafkaSink
  *
- * Created by xuwei.tech on 2018/10/23.
+ *      
  */
 @Slf4j
 public class StreamingKafkaSink {

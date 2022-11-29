@@ -8,9 +8,7 @@ import org.apache.flink.api.java.tuple.Tuple3;
 
 import java.util.ArrayList;
 
-/**
- * Created by xuwei.tech on 2018/10/8.
- */
+
 public class BatchDemoJoin {
 
     public static void main(String[] args) throws Exception{

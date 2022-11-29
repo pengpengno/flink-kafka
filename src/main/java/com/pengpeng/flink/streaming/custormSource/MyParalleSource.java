@@ -4,7 +4,7 @@ import org.apache.flink.streaming.api.functions.source.ParallelSourceFunction;
 
 /**
  * 自定义实现一个支持并行度的source
- * Created by xuwei.tech on 2018/10/23.
+ *      
  */
 public class MyParalleSource implements ParallelSourceFunction<Long> {
 

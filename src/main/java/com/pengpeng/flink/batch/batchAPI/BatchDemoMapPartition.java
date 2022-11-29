@@ -9,9 +9,7 @@ import org.apache.flink.util.Collector;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/**
- * Created by xuwei.tech on 2018/10/8.
- */
+
 public class BatchDemoMapPartition {
 
     public static void main(String[] args) throws Exception{

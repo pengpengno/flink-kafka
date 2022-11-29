@@ -11,13 +11,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Distributed Cache
- *
- *
- *
- * Created by xuwei.tech on 2018/10/8.
- */
+
 public class BatchDemoDisCache {
 
     public static void main(String[] args) throws Exception{

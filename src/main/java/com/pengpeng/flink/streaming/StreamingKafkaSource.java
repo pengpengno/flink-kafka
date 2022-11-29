@@ -12,7 +12,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 /**
  * kafkaSource
  *
- * Created by xuwei.tech on 2018/10/23.
+ *      
  */
 public class StreamingKafkaSource {
 

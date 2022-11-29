@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * 右外连接
  * 全外连接
  *
- * Created by xuwei.tech on 2018/10/8.
+ *     
  */
 public class BatchDemoOuterJoin {
 

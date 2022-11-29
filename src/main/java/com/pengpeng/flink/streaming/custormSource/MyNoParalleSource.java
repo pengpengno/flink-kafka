@@ -15,7 +15,7 @@ import org.apache.flink.streaming.api.functions.source.SourceFunction;
  * Support for synthetic interfaces, lambdas, and generic or raw types is limited at this point
  *
  *
- * Created by xuwei.tech on 2018/10/23.
+ *      
  */
 public class MyNoParalleSource implements SourceFunction<Long>{
 

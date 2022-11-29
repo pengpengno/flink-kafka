@@ -17,7 +17,7 @@ import org.apache.flink.util.Collector;
  * 需要实现每隔1秒对最近2秒内的数据进行汇总计算
  *
  *
- * Created by xuwei.tech on 2018/10/8.
+ *     
  */
 public class SocketWindowWordCountJava {
 

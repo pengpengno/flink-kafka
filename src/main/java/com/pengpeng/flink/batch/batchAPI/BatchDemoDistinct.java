@@ -8,9 +8,6 @@ import org.apache.flink.util.Collector;
 
 import java.util.ArrayList;
 
-/**
- * Created by xuwei.tech on 2018/10/8.
- */
 public class BatchDemoDistinct {
 
     public static void main(String[] args) throws Exception{

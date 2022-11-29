@@ -13,7 +13,7 @@ import org.apache.flink.util.Collector;
 /**
  * checkpoint
  *
- * Created by xuwei.tech on 2018/10/8.
+ *     
  */
 public class SocketWindowWordCountJavaCheckPoint {
 

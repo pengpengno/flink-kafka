@@ -10,7 +10,7 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 /**
  * 使用并行度为1的source
  *
- * Created by xuwei.tech on 2018/10/23.
+ *      
  */
 public class StreamingDemoWithMyNoPralalleSource {
 

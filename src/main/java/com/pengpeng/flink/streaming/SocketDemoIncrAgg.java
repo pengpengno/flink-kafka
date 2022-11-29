@@ -12,7 +12,7 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 /**
  * window 增量聚合
  *
- * Created by xuwei.tech on 2018/10/8.
+ *     
  */
 public class SocketDemoIncrAgg {
 

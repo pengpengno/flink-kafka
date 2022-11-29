@@ -7,10 +7,6 @@ import org.apache.flink.api.java.tuple.Tuple2;
 
 import java.util.ArrayList;
 
-/**
- * 获取集合中的前N个元素
- * Created by xuwei.tech on 2018/10/8.
- */
 public class BatchDemoFirstN {
 
     public static void main(String[] args) throws Exception{
